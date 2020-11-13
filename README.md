@@ -58,4 +58,17 @@ MinMax| 9 | 8 | .72019
 
 In order to further investigate possible models, I ran decision tree regressions with each of the different scalers on the data. As a result of this analysis, the best decision tree models that I found were on the raw data, applying the normalizer scaler, or applying MinMax scaler and using the parameters of max_depth=9 and min_samples_split=8. These regressions all yielded an average R2 score of .72019.
 
+## Random Forest:
+
+
+Scaler | Min Split Parameter | Max Depth Parameter | Number of Trees | Accuracy
+--- | --- | --- | --- | ---
+Raw| 10 | 11 | 50 | .72561 
+Robust| 10 | 11 | 50 | .72556
+Standard| 10 | 11 | 50 | .72559 
+Normalizer| 6 | 10 | .6745 
+MinMax| 9 | 8 | .72019 
+
+## Conclusion:
+
 
