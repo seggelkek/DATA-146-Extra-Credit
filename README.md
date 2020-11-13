@@ -6,19 +6,27 @@ In general, this data describes different demographic features of Liberia, allow
 
 In addition to the target statistic of education, this data also includes information on location, size, wealth, gender, and age. The histogram below gives a general overview of these variables as well as their spread.
 
-HISTOGRAM
+![](histogram.png)
 
 To begin the analysis, I looked into the relationships between each of these variables in order to ensure that there were no compounding relationships between the variables. In this data set, as seen in the heat map, there were no major linear correlations between any individual variables. In many ways this is positive, showing that each demographic feature is contributing its own piece of the puzzle and is not just another way of measuring the same features. The pair plot is also provided below and does give some hope that with scaling and the use of various regressions, a possible model could connect some of these covariates.
 
-HEAT MAP
+![](heatmap.png)
 
-PAIR PLOT
+![](pairplot.png)
 
 ## Logistic Regression:
 
 TABLE
 
 Overall, the logistic regressions that I tested did not produce models that I would be confident using to predict education status based on other demographic features. The normalized data produced the most accurate model with a R2 score of .64652; however, even this value is not high enough to be satisfied that this was the best model. Nevertheless, these results do demonstrate that applying different scalers can be a powerful tool; simply applying the normalizer scaler increased the accuracy by over 7%.
+
+![](raw_logistic_regression.png)
+![](robust_scaler.png)
+![](standard_scaler.png)
+![](normalized.png)
+![](minmax_scaler.png)
+
+The plots above illustrate the spread of testing vs. training scores when doing a k-fold validation with each scaler. These plots suggest that other techniques, besides a logistic regression, should be used due to the fact that the training scores are largely concentrated while the testing scores cover a wider range.
 
 ## kNN:
 
