@@ -16,7 +16,13 @@ To begin the analysis, I looked into the relationships between each of these var
 
 ## Logistic Regression:
 
-TABLE
+Scaler | Accuracy
+--- | --- 
+Raw| .57025 
+Robust| .57020
+Standard| .57030
+Normalizer| .64652
+MinMax| .57020
 
 Overall, the logistic regressions that I tested did not produce models that I would be confident using to predict education status based on other demographic features. The normalized data produced the most accurate model with a R2 score of .64652; however, even this value is not high enough to be satisfied that this was the best model. Nevertheless, these results do demonstrate that applying different scalers can be a powerful tool; simply applying the normalizer scaler increased the accuracy by over 7%.
 
@@ -30,13 +36,25 @@ The plots above illustrate the spread of testing vs. training scores when doing 
 
 ## kNN:
 
-TABLE
+Scaler | neighbor parameter | Accuracy
+--- | --- | ---
+Raw| 27 | .70225 
+Robust| 19 | .70203
+Standard| 30 | .70453
+Normalizer| 26 | .66897
+MinMax| 26 | .71146
 
 In order to further investigate possible models, I ran a kNN regression with each of the different scalers on the data. As a result of this analysis, the best kNN model that I found was applying the MinMax scaler and assuming that each point had 26 closest neighbors. This regression yielded an average R2 score of .71146.
 
 ## Decision Tree:
 
-TABLE
+Scaler | Min Split Parameter | Max Depth Parameter | Accuracy
+--- | --- | --- | ---
+Raw| 9 | 8 | .72019 
+Robust| 9 | 8 | .72019 
+Standard| 9 | 8 | .72015 
+Normalizer| 6 | 10 | .6745 
+MinMax| 9 | 8 | .72019 
 
 In order to further investigate possible models, I ran decision tree regressions with each of the different scalers on the data. As a result of this analysis, the best decision tree models that I found were on the raw data, applying the normalizer scaler, or applying MinMax scaler and using the parameters of max_depth=9 and min_samples_split=8. These regressions all yielded an average R2 score of .72019.
 
